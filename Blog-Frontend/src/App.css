@@ -1,0 +1,25 @@
+/* Root container */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  text-align: left;
+}
+
+/* Underline-on-hover for nav links */
+.nav-link-hover {
+  position: relative;
+}
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent);
+  transition: width var(--duration) var(--ease);
+}
+.nav-link-hover:hover::after,
+.nav-link-hover.active::after {
+  width: 100%;
+}

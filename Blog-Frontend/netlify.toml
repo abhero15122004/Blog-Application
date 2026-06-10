@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  included_files = []
+
+# `netlify dev` will run vite on 5173 and proxy /.netlify/functions/* to the
+# local function emulator. Use it in place of `npm run dev` when testing AI.
+[dev]
+  command = "npm run dev"
+  port = 8888
+  targetPort = 5173
+  framework = "#custom"
+
+# SPA fallback so client-side routes work after a hard refresh on Netlify.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
